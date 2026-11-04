@@ -2,7 +2,9 @@ import { motion } from 'motion/react'
 import { ArrowDown, ArrowUpRight, MessageCircle } from 'lucide-react'
 import { useState } from 'react'
 
+import { archive, occasions, type Occasion } from '../../data/archive'
 import { about, cakes, categories, hello, site, type Category } from '../../data/site'
+import { ArchiveCard } from '../components/ArchiveCard'
 import { CakeCard } from '../components/CakeCard'
 import { InstagramIcon } from '../components/icons'
 import { Lightbox } from '../components/Lightbox'
@@ -17,13 +19,25 @@ type Filter = 'All' | Category
 export function Home() {
   const [filter, setFilter] = useState<Filter>('All')
   const [opened, setOpened] = useState<number | null>(null)
+  const [archiveFilter, setArchiveFilter] = useState<'All' | Occasion>('All')
+  const [archiveLimit, setArchiveLimit] = useState(12)
+  const [archiveOpened, setArchiveOpened] = useState<number | null>(null)
 
   const shelf = filter === 'All' ? cakes : cakes.filter((cake) => cake.category === filter)
   const openCake = opened === null ? null : shelf[opened]
 
+  const archiveShelf = archiveFilter === 'All' ? archive : archive.filter((cake) => cake.occasion === archiveFilter)
+  const archiveShown = archiveShelf.slice(0, archiveLimit)
+  const openArchive = archiveOpened === null ? null : archiveShown[archiveOpened]
+
   const step = (direction: 1 | -1) => {
     if (opened === null) return
     setOpened((opened + direction + shelf.length) % shelf.length)
+  }
+
+  const stepArchive = (direction: 1 | -1) => {
+    if (archiveOpened === null) return
+    setArchiveOpened((archiveOpened + direction + archiveShown.length) % archiveShown.length)
   }
 
   return (
@@ -67,7 +81,7 @@ export function Home() {
                   setOpened(null)
                 }}
                 className={cx(
-                  'h-9 rounded-full border px-4 text-[13px] transition-colors duration-300',
+                  'h-9 shrink-0 rounded-full border px-4 text-[13px] transition-colors duration-300',
                   active ? 'border-fg bg-fg text-bg' : 'border-line-strong text-muted hover:border-fg hover:text-fg',
                 )}
               >
@@ -104,6 +118,66 @@ export function Home() {
         </Reveal>
       </section>
 
+      {/* The full archive */}
+      <section id="archive" className="mx-auto max-w-[1400px] scroll-mt-20 border-t border-line px-5 pt-16 sm:px-8 sm:pt-20">
+        <div className="flex flex-col gap-6 pb-8 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className="text-[11px] uppercase tracking-[0.16em] text-faint">02 — The full archive</p>
+            <Lines as="h2" className="font-display mt-3 text-[clamp(38px,5.4vw,68px)]" lines={['Every cake', 'off the counter']} />
+          </div>
+          <Reveal delay={0.1} className="max-w-sm text-pretty text-[14.5px] leading-relaxed text-muted">
+            The rest of the cakes — {archive.length} photographs from {site.instagram.handle}, newest first, back to the
+            first bake in 2022.
+          </Reveal>
+        </div>
+
+        <div className="-mx-1 flex flex-nowrap items-center gap-2 overflow-x-auto px-1 pb-2 sm:flex-wrap sm:overflow-visible sm:pb-0">
+          {(['All', ...occasions] as ('All' | Occasion)[]).map((option) => {
+            const active = archiveFilter === option
+            return (
+              <button
+                key={option}
+                type="button"
+                aria-pressed={active}
+                onClick={() => {
+                  setArchiveFilter(option)
+                  setArchiveLimit(12)
+                  setArchiveOpened(null)
+                }}
+                className={cx(
+                  'h-9 shrink-0 rounded-full border px-4 text-[13px] transition-colors duration-300',
+                  active ? 'border-fg bg-fg text-bg' : 'border-line-strong text-muted hover:border-fg hover:text-fg',
+                )}
+              >
+                {option}
+              </button>
+            )
+          })}
+        </div>
+
+        <div className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
+          {archiveShown.map((cake, index) => (
+            <ArchiveCard key={cake.slug} cake={cake} index={index} onOpen={() => setArchiveOpened(index)} />
+          ))}
+        </div>
+
+        <div className="mt-7 flex flex-col items-center gap-3 border-t border-line pt-6 text-[12.5px] text-faint sm:flex-row sm:justify-between">
+          <p>
+            {archiveShown.length} of {archiveShelf.length} photographs
+          </p>
+          {archiveShown.length < archiveShelf.length && (
+            <button
+              type="button"
+              onClick={() => setArchiveLimit((limit) => limit + 12)}
+              className="inline-flex items-center gap-2 rounded-full border border-line-strong px-6 py-2.5 text-[13px] text-fg transition-colors hover:border-fg"
+            >
+              Load more cakes
+              <ArrowDown className="size-3.5" />
+            </button>
+          )}
+        </div>
+      </section>
+
       {/* The baker */}
       <section id="about" className="mt-24 scroll-mt-20 border-y border-line bg-surface/70 sm:mt-32">
         <div className="mx-auto grid max-w-[1400px] gap-12 px-5 py-20 sm:px-8 sm:py-28 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-20">
@@ -120,7 +194,7 @@ export function Home() {
           </Reveal>
 
           <div>
-            <p className="text-[11px] uppercase tracking-[0.16em] text-faint">02 — The baker</p>
+            <p className="text-[11px] uppercase tracking-[0.16em] text-faint">03 — The baker</p>
             <Lines as="h2" className="font-display mt-3 text-[clamp(38px,5.4vw,68px)]" lines={['One oven,', 'one pair of hands']} />
             <Reveal delay={0.15} className="font-display mt-7 max-w-xl text-pretty text-[23px] leading-[1.3] text-fg/90 sm:text-[28px]">
               {about.lead}
@@ -155,7 +229,7 @@ export function Home() {
           <div className="rounded-[32px] bg-fg px-6 py-12 text-bg sm:px-12 sm:py-16 lg:px-16 lg:py-20">
             <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-center lg:gap-20">
               <div>
-                <p className="text-[11px] uppercase tracking-[0.16em] text-bg/45">03 — Cakes, made to order</p>
+                <p className="text-[11px] uppercase tracking-[0.16em] text-bg/45">04 — Cakes, made to order</p>
                 <Lines as="h2" className="font-display mt-4 text-[clamp(40px,6vw,82px)]" lines={[hello.title]} />
                 <Reveal delay={0.15} className="mt-6 max-w-lg text-pretty text-[15.5px] leading-relaxed text-bg/70">
                   {hello.body}
@@ -219,6 +293,26 @@ export function Home() {
           onClose={() => setOpened(null)}
           onPrev={() => step(-1)}
           onNext={() => step(1)}
+        />
+      )}
+
+      {openArchive && (
+        <Lightbox
+          cake={{
+            slug: openArchive.slug,
+            title: openArchive.title || 'A cake from the archive',
+            category: openArchive.occasion,
+            image: openArchive.image,
+            alt: openArchive.alt,
+            tint: '#efe6dd',
+            note: openArchive.note || 'One of the cakes that went out from the Sodepur kitchen.',
+          }}
+          index={archiveOpened ?? 0}
+          total={archiveShown.length}
+          label="The archive"
+          onClose={() => setArchiveOpened(null)}
+          onPrev={() => stepArchive(-1)}
+          onNext={() => stepArchive(1)}
         />
       )}
     </>

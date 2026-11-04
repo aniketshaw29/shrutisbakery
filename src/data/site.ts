@@ -1,5 +1,7 @@
 // Everything about the bakery lives here. The pages read from this file.
 
+import type { Occasion } from './archive'
+
 export const site = {
   name: "Shruti's Bakery",
   by: 'Shruti Singh',
@@ -22,18 +24,21 @@ export const site = {
   flavours: [
     'birthdays',
     'anniversaries',
+    'rakhi',
+    "teacher's day",
+    "mother's day",
     'first birthdays',
     'custom toppers',
     'character cakes',
-    'fresh cream',
     'photo cakes',
+    'fresh cream',
     'celebration cakes',
   ],
   kitchenNote:
     'Baked in a home kitchen, so I cannot promise a nut-free space. Everything contains gluten, eggs and dairy.',
 }
 
-export type Category = 'Celebration cakes' | 'Character cakes' | 'Personalised'
+export type Category = 'Celebration cakes' | 'Character cakes' | 'Personalised' | Occasion
 
 export const categories: Category[] = ['Celebration cakes', 'Character cakes', 'Personalised']
 
@@ -112,6 +117,15 @@ export const cakes: Cake[] = [
     note: 'Fresh cream, a sugar butterfly and “Maa” in pink, made for Mother’s Day.',
   },
   {
+    slug: 'butterfly-logo-topper',
+    title: 'Butterfly and logo topper',
+    category: 'Celebration cakes',
+    image: '/images/butterfly-logo.jpg',
+    alt: 'A pink cake with piped roses, gold-flecked butterflies and a round Shruti\u2019s Bakery logo topper',
+    tint: '#f6dde2',
+    note: 'Pink on pink: ruffled roses, sugar butterflies and a printed topper with the bakery logo.',
+  },
+  {
     slug: 'princess-doll-cake',
     title: 'Princess doll cake',
     category: 'Character cakes',
@@ -127,7 +141,7 @@ export const about = {
   lead: 'I am Shruti. I bake celebration cakes to order in Sodepur — piped by hand, named on top, and made for one occasion at a time.',
   body: [
     'Shruti’s Bakery is a small operation: one kitchen, one oven and a stand mixer, plus a counter where the finished cakes get their photograph taken.',
-    'The cakes here are made to order — birthdays, anniversaries, first birthdays, Mother’s Day and the occasional joke cake. Buttercream, fresh cream, edible print toppers and names iced by hand.',
+    'The cakes here are made to order — birthdays, anniversaries, Rakhi, Teacher’s Day, Mother’s Day and the occasional joke cake. Buttercream, fresh cream, edible print toppers and names iced by hand.',
     'Every photograph on this page is a cake that went out to someone. If you would like one, tell me the occasion and the name you want on top.',
   ],
   facts: [

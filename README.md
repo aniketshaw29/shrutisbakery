@@ -15,6 +15,12 @@ update the matching entries in `src/data/site.ts`.
 The logo in the header, footer and contact panel is her Instagram profile
 picture (`public/logo.jpg`), also used for the favicon.
 
+The newest cakes live in `src/data/site.ts` and appear on the featured shelf.
+The rest of the photo archive is generated into `src/data/archive.ts` (101
+entries, with occasion tags) and served from `public/archive/`; it loads twelve
+at a time. Only grid photo posts are included — reels and story highlights are
+not.
+
 ## Run it
 
 ```sh

@@ -15,6 +15,7 @@ export function Lightbox({
   cake,
   index,
   total,
+  label = 'The cake shelf',
   onClose,
   onPrev,
   onNext,
@@ -22,6 +23,7 @@ export function Lightbox({
   cake: Cake
   index: number
   total: number
+  label?: string
   onClose: () => void
   onPrev: () => void
   onNext: () => void
@@ -71,7 +73,7 @@ export function Lightbox({
     >
       <div className="flex items-center justify-between gap-4 border-b border-line px-5 py-4 sm:px-8">
         <p className="text-[11px] uppercase tracking-[0.16em] text-muted">
-          The cake shelf <span className="ml-2 tabular-nums text-faint">{index + 1} / {total}</span>
+          {label} <span className="ml-2 tabular-nums text-faint">{index + 1} / {total}</span>
         </p>
         <button
           ref={closeRef}

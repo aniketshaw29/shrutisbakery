@@ -7,6 +7,7 @@ import { cx } from '../lib/cx'
 
 const sections = [
   { id: 'cakes', label: 'Cakes' },
+  { id: 'archive', label: 'Archive' },
   { id: 'about', label: 'The baker' },
   { id: 'hello', label: 'Say hello' },
 ]
