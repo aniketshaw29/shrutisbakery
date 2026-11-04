@@ -184,13 +184,13 @@ export function Home() {
           <Reveal>
             <div className="image-frame aspect-[4/5] overflow-hidden rounded-[24px]">
               <img
-                src={asset('/images/about-counter.jpg')}
-                alt="The Shruti's Bakery counter with a character face cake and cupcakes on the shelves behind"
+                src={asset('/images/about-cake.jpg')}
+                alt="A two-tier anniversary cake in red and white, with fresh red roses, gold beads and a bride-and-groom topper"
                 className="size-full object-cover"
                 loading="lazy"
               />
             </div>
-            <p className="font-display-italic mt-3 text-[14px] text-muted">The counter, where every cake gets its photograph taken.</p>
+            <p className="font-display-italic mt-3 text-[14px] text-muted">Two tiers, red roses and rather a lot of gold.</p>
           </Reveal>
 
           <div>
@@ -265,6 +265,9 @@ export function Home() {
                       <ArrowUpRight className="size-4" />
                     </a>
                   )}
+                </Reveal>
+                <Reveal delay={0.22} className="mt-5 max-w-md text-[13px] leading-relaxed text-bg/60">
+                  Online orders · delivered, or collected from my home in Agarpara.
                 </Reveal>
                 <Reveal delay={0.24} className="mt-7 max-w-md text-[12px] leading-relaxed text-bg/40">
                   {site.kitchenNote}
@@ -410,11 +413,9 @@ function Hero() {
           transition={{ duration: 1, delay: 0.9 }}
           className="mt-14 grid gap-3 border-t border-line py-6 text-[12.5px] text-muted sm:grid-cols-3"
         >
-          <p>
-            {site.areas}, Kolkata
-          </p>
-          <p className="sm:text-center">Celebration, character &amp; photo cakes</p>
-          <p className="sm:text-right">Order on WhatsApp</p>
+          <p>{site.location}</p>
+          <p className="sm:text-center">Celebration, character, photo &amp; sugar-free cakes</p>
+          <p className="sm:text-right">Online orders · delivery or pickup</p>
         </motion.div>
       </div>
     </section>

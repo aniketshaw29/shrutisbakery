@@ -1,7 +1,6 @@
 # Shruti's Bakery
 
-Shruti Singh's home bakery site — Sodepur, Kolkata, serving Sodepur and
-Agarpara.
+Shruti Singh's home bakery site — Sodepur and Agarpara, Kolkata, India.
 
 A photo display site for homemade cakes. No prices, no menus, no checkout:
 a big warm hero, a filterable photo shelf that opens into a full-screen
@@ -20,6 +19,13 @@ The rest of the photo archive is generated into `src/data/archive.ts` (101
 entries, with occasion tags) and served from `public/archive/`; it loads twelve
 at a time. Only grid photo posts are included — reels and story highlights are
 not.
+
+Sugar-free cakes are offered on request; the site says so in the hero, the
+marquee, the baker section and the contact block.
+
+Orders are online (WhatsApp is the main channel). Cakes are either delivered
+or collected from Shruti's home in Agarpara; the baker section and contact
+block say so.
 
 ## Run it
 
