@@ -6,9 +6,10 @@ A photo display site for homemade cakes. No prices, no menus, no checkout:
 a big warm hero, a filterable photo shelf that opens into a full-screen
 lightbox, a short note from the baker, and a way to ask for a cake.
 
-Every photograph is one of Shruti's cakes, saved from
-[instagram.com/shrutisbakery](https://www.instagram.com/shrutisbakery/). There
-are no stock or kitchen photos. Replace or add to them in `public/images/` and
+Every cake photograph is one of Shruti's, saved from
+[instagram.com/shrutisbakery](https://www.instagram.com/shrutisbakery/). The
+baker section uses a portrait from her personal profile (`public/images/shruti.jpg`).
+There are no stock photos. Replace or add cake photos in `public/images/` and
 update the matching entries in `src/data/site.ts`.
 
 The logo in the header, footer and contact panel is her Instagram profile

@@ -184,13 +184,12 @@ export function Home() {
           <Reveal>
             <div className="image-frame aspect-[4/5] overflow-hidden rounded-[24px]">
               <img
-                src={asset('/images/about-cake.jpg')}
-                alt="A two-tier anniversary cake in red and white, with fresh red roses, gold beads and a bride-and-groom topper"
-                className="size-full object-cover"
+                src={asset('/images/shruti.jpg')}
+                alt="Shruti Singh, the baker behind Shruti's Bakery, sitting outdoors in a brown floral top and jeans"
+                className="size-full object-cover object-[center_35%]"
                 loading="lazy"
               />
             </div>
-            <p className="font-display-italic mt-3 text-[14px] text-muted">Two tiers, red roses and rather a lot of gold.</p>
           </Reveal>
 
           <div>
