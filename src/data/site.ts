@@ -18,7 +18,7 @@ export const site = {
   },
   hero: {
     intro:
-      'Celebration cakes, character cakes, photo cakes and sugar-free cakes, baked to order in my own kitchen in Sodepur, just down the road from Agarpara. No price lists, no menus — just photographs of what came out of the oven, and a few words about each one.',
+      'Celebration cakes, character cakes, photo cakes, sugar-free cakes and fully custom designs, baked to order in my own kitchen in Sodepur, just down the road from Agarpara. No price lists, no menus — just photographs of what came out of the oven, and a few words about each one.',
     caption: 'Roses, gold leaf and rather a lot of buttercream.',
   },
   flavours: [
@@ -142,7 +142,7 @@ export const about = {
   lead: 'I am Shruti. I bake celebration cakes to order across Sodepur and Agarpara, Kolkata — piped by hand, named on top, and made for one occasion at a time.',
   body: [
     'Shruti’s Bakery is a small operation: one kitchen, one oven and a stand mixer, plus a counter where the finished cakes get their photograph taken.',
-    'The cakes here are made to order — birthdays, anniversaries, Rakhi, Teacher’s Day, Mother’s Day and the occasional joke cake. Buttercream, fresh cream, edible print toppers and names iced by hand. Sugar-free cakes are made on request.',
+    'The cakes here are made to order — birthdays, anniversaries, Rakhi, Teacher’s Day, Mother’s Day and the occasional joke cake. Buttercream, fresh cream, edible print toppers and names iced by hand. Sugar-free cakes are made on request. If you have an idea that isn’t here, share it with me and I’ll make it custom.',
     'Every photograph on this page is a cake that went out to someone. If you would like one, tell me the occasion and the name you want on top.',
   ],
   facts: [
@@ -155,4 +155,6 @@ export const about = {
 export const hello = {
   title: 'Fancy one of these?',
   body: 'I take orders online, and every cake is either delivered or collected from my home in Agarpara. Tell me the occasion, the name you want on top and roughly how many people. Sugar-free cakes are available on request. The quickest way is a WhatsApp message on the number below — I will tell you honestly what is possible and when I can fit it in.',
+  custom:
+    'Any cake idea is possible. Share a theme, a character, a photo, a flavour or a rough sketch, and I will make it custom for you.',
 }

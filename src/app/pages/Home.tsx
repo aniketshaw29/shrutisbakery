@@ -266,7 +266,11 @@ export function Home() {
                     </a>
                   )}
                 </Reveal>
-                <Reveal delay={0.22} className="mt-5 max-w-md text-[13px] leading-relaxed text-bg/60">
+                <Reveal delay={0.22} className="mt-7 max-w-md rounded-2xl border border-bg/15 px-5 py-4">
+                  <p className="text-[11px] uppercase tracking-[0.14em] text-bg/45">Custom cakes</p>
+                  <p className="mt-1.5 text-[14px] leading-relaxed text-bg/75">{hello.custom}</p>
+                </Reveal>
+                <Reveal delay={0.23} className="mt-5 max-w-md text-[13px] leading-relaxed text-bg/60">
                   Online orders · delivered, or collected from my home in Agarpara.
                 </Reveal>
                 <Reveal delay={0.24} className="mt-7 max-w-md text-[12px] leading-relaxed text-bg/40">

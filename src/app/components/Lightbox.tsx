@@ -79,7 +79,7 @@ export function Lightbox({
           ref={closeRef}
           type="button"
           onClick={() => requestCloseRef.current()}
-          className="inline-flex items-center gap-1.5 text-[13px] text-muted transition-colors hover:text-fg"
+          className="-mr-2 inline-flex min-h-11 items-center gap-1.5 px-2 text-[13px] text-muted transition-colors hover:text-fg"
         >
           Close
           <X className="size-4" />

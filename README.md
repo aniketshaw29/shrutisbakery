@@ -27,6 +27,10 @@ Orders are online (WhatsApp is the main channel). Cakes are either delivered
 or collected from Shruti's home in Agarpara; the baker section and contact
 block say so.
 
+Custom cakes are invited throughout: the hero mentions custom designs, the
+baker copy asks for any idea that is not on the site, and the contact block
+has a dedicated “Custom cakes” note.
+
 ## Run it
 
 ```sh
