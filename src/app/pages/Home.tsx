@@ -4,6 +4,7 @@ import { useState } from 'react'
 
 import { about, cakes, categories, hello, site, type Category } from '../../data/site'
 import { CakeCard } from '../components/CakeCard'
+import { InstagramIcon } from '../components/icons'
 import { Lightbox } from '../components/Lightbox'
 import { Lines, Magnetic, Reveal } from '../components/motion'
 import { asset } from '../../lib/asset'
@@ -89,9 +90,15 @@ export function Home() {
         </motion.div>
 
         <Reveal className="flex flex-col items-start justify-between gap-3 border-t border-line pt-5 text-[13.5px] text-muted sm:flex-row sm:items-center">
-          <p>New cakes most weeks. The rest go up on Instagram, usually still warm.</p>
-          <a href={site.instagram.href} className="link-draw inline-flex items-center gap-1 font-medium text-fg">
-            {site.instagram.label}
+          <p>New cakes most weeks. Follow along for the latest updates, usually still warm.</p>
+          <a
+            href={site.instagram.href}
+            target="_blank"
+            rel="noreferrer"
+            className="link-draw inline-flex items-center gap-1.5 font-medium text-fg"
+          >
+            <InstagramIcon className="size-4" />
+            Follow for new bakes
             <ArrowUpRight className="size-4" />
           </a>
         </Reveal>
@@ -167,10 +174,12 @@ export function Home() {
                   </Magnetic>
                   <a
                     href={site.instagram.href}
+                    target="_blank"
+                    rel="noreferrer"
                     className="link-draw inline-flex items-center gap-1.5 text-[14px] text-bg/65 transition-colors hover:text-bg"
                   >
-                    {site.instagram.handle}
-                    <ArrowUpRight className="size-4" />
+                    <InstagramIcon className="size-4" />
+                    Follow {site.instagram.handle}
                   </a>
                   <span className="text-[13px] tabular-nums text-bg/45">{site.whatsapp.display}</span>
                   {site.email && (

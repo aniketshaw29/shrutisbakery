@@ -6,13 +6,13 @@ export const site = {
   tagline: 'Homemade cakes, baked to order',
   location: 'Sodepur, Kolkata',
   areas: 'Sodepur & Agarpara',
-  // Leave empty to hide the email link and send people to Instagram instead.
+  // Leave empty to hide the email link and send people to WhatsApp instead.
   email: '',
   instagram: { label: 'Instagram', handle: '@shrutisbakery', href: 'https://www.instagram.com/shrutisbakery/' },
   whatsapp: {
     number: '918910206294',
     display: '+91 89102 06294',
-    href: `https://wa.me/918910206294?text=${encodeURIComponent("Hi Shruti! I'd like to order a cake.")}`,
+    href: `https://wa.me/918910206294?text=${encodeURIComponent('Hi Shruti, I would like to order a cake.')}`,
   },
   hero: {
     intro:

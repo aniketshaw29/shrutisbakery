@@ -1,7 +1,8 @@
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, MessageCircle } from 'lucide-react'
 
 import { site } from '../../data/site'
 import { asset } from '../../lib/asset'
+import { InstagramIcon } from './icons'
 
 export function Footer() {
   return (
@@ -25,9 +26,21 @@ export function Footer() {
               </a>
             )}
             <a
-              href={site.instagram.href}
-              className="link-draw inline-flex items-center gap-1 text-muted transition-colors hover:text-fg"
+              href={site.whatsapp.href}
+              target="_blank"
+              rel="noreferrer"
+              className="link-draw inline-flex items-center gap-1.5 text-muted transition-colors hover:text-fg"
             >
+              <MessageCircle className="size-3.5" />
+              WhatsApp {site.whatsapp.display}
+            </a>
+            <a
+              href={site.instagram.href}
+              target="_blank"
+              rel="noreferrer"
+              className="link-draw inline-flex items-center gap-1.5 text-muted transition-colors hover:text-fg"
+            >
+              <InstagramIcon className="size-3.5" />
               {site.instagram.handle}
               <ArrowUpRight className="size-3.5" />
             </a>

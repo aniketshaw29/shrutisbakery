@@ -30,9 +30,11 @@ bun run build      # dist/client (assets) + dist/honey_and_crumb/index.js (Worke
   cake list. Each cake has a title, a category, an image, alt text, a tint for
   the loading frame and a one-line note. Add one by dropping a photo in
   `public/images/` and appending an entry to `cakes`.
-- Contact is Instagram-first (`DM @shrutisbakery`) because that is how orders
-  come in. Set `site.email` in `src/data/site.ts` if you want an email button
-  to appear as well.
+- Orders go to WhatsApp: the number lives in `site.whatsapp` in
+  `src/data/site.ts`, and the link is a `wa.me` URL with a pre-filled first
+  message. Change the number there and every order button follows. Instagram
+  stays as the gallery link, and `site.email` (empty by default) adds an email
+  button.
 - `src/app/pages/Home.tsx` holds the hero, the shelf, the baker section and
   the contact block. `src/app/components/Lightbox.tsx` is the full-screen
   photo view (arrow keys and Escape work). `src/app/components/CakeCard.tsx`
