@@ -1,14 +1,19 @@
-# Honey & Crumb
+# Shruti's Bakery
 
-Shurti Singh's home bakery site — Sodepur, Kolkata, serving Sodepur and
+Shruti Singh's home bakery site — Sodepur, Kolkata, serving Sodepur and
 Agarpara.
 
 A photo display site for homemade cakes. No prices, no menus, no checkout:
 a big warm hero, a filterable photo shelf that opens into a full-screen
 lightbox, a short note from the baker, and a way to ask for a cake.
 
-The photos are placeholders from Unsplash (free licence). Replace them with
-your own bakes in `public/images/` and the site becomes yours.
+Every photograph is one of Shruti's cakes, saved from
+[instagram.com/shrutisbakery](https://www.instagram.com/shrutisbakery/). There
+are no stock or kitchen photos. Replace or add to them in `public/images/` and
+update the matching entries in `src/data/site.ts`.
+
+The logo in the header, footer and contact panel is her Instagram profile
+picture (`public/logo.jpg`), also used for the favicon.
 
 ## Run it
 
@@ -20,12 +25,14 @@ bun run build      # dist/client (assets) + dist/honey_and_crumb/index.js (Worke
 
 ## Make it yours
 
-- `src/data/site.ts` is the whole site: the baker's name, location, areas,
-  email, Instagram, hero copy, flavours for the marquee and the full cake
-  list. Each cake has a
-  title, a category, an image, alt text, a tint for the loading frame and a
-  one-line note. Add one by dropping a photo in `public/images/` and appending
-  an entry to `cakes`.
+- `src/data/site.ts` is the whole site: the bakery name, baker, location,
+  areas, Instagram, optional email, hero copy, the marquee list and the full
+  cake list. Each cake has a title, a category, an image, alt text, a tint for
+  the loading frame and a one-line note. Add one by dropping a photo in
+  `public/images/` and appending an entry to `cakes`.
+- Contact is Instagram-first (`DM @shrutisbakery`) because that is how orders
+  come in. Set `site.email` in `src/data/site.ts` if you want an email button
+  to appear as well.
 - `src/app/pages/Home.tsx` holds the hero, the shelf, the baker section and
   the contact block. `src/app/components/Lightbox.tsx` is the full-screen
   photo view (arrow keys and Escape work). `src/app/components/CakeCard.tsx`

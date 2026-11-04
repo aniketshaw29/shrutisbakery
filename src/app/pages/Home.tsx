@@ -1,5 +1,5 @@
 import { motion } from 'motion/react'
-import { ArrowDown, ArrowUpRight } from 'lucide-react'
+import { ArrowDown, ArrowUpRight, MessageCircle } from 'lucide-react'
 import { useState } from 'react'
 
 import { about, cakes, categories, hello, site, type Category } from '../../data/site'
@@ -102,9 +102,14 @@ export function Home() {
         <div className="mx-auto grid max-w-[1400px] gap-12 px-5 py-20 sm:px-8 sm:py-28 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-20">
           <Reveal>
             <div className="image-frame aspect-[4/5] overflow-hidden rounded-[24px]">
-              <img src={asset('/images/kitchen-knead.jpg')} alt="Hands folding cake batter in a striped mixing bowl" className="size-full object-cover" loading="lazy" />
+              <img
+                src={asset('/images/about-counter.jpg')}
+                alt="The Shruti's Bakery counter with a character face cake and cupcakes on the shelves behind"
+                className="size-full object-cover"
+                loading="lazy"
+              />
             </div>
-            <p className="font-display-italic mt-3 text-[14px] text-muted">The folding, done by hand and a good spatula.</p>
+            <p className="font-display-italic mt-3 text-[14px] text-muted">The counter, where every cake gets its photograph taken.</p>
           </Reveal>
 
           <div>
@@ -151,28 +156,46 @@ export function Home() {
                 <Reveal delay={0.2} className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4">
                   <Magnetic>
                     <a
-                      href={`mailto:${site.email}`}
+                      href={site.whatsapp.href}
+                      target="_blank"
+                      rel="noreferrer"
                       className="inline-flex items-center gap-2 rounded-full bg-bg px-7 py-3.5 text-[14.5px] font-medium text-fg transition-colors hover:bg-surface"
                     >
-                      {site.email}
-                      <ArrowUpRight className="size-4" />
+                      <MessageCircle className="size-4" />
+                      Order on WhatsApp
                     </a>
                   </Magnetic>
                   <a
                     href={site.instagram.href}
                     className="link-draw inline-flex items-center gap-1.5 text-[14px] text-bg/65 transition-colors hover:text-bg"
                   >
-                    {site.instagram.label}
+                    {site.instagram.handle}
                     <ArrowUpRight className="size-4" />
                   </a>
+                  <span className="text-[13px] tabular-nums text-bg/45">{site.whatsapp.display}</span>
+                  {site.email && (
+                    <a
+                      href={`mailto:${site.email}`}
+                      className="link-draw inline-flex items-center gap-1.5 text-[14px] text-bg/65 transition-colors hover:text-bg"
+                    >
+                      {site.email}
+                      <ArrowUpRight className="size-4" />
+                    </a>
+                  )}
+                </Reveal>
+                <Reveal delay={0.24} className="mt-7 max-w-md text-[12px] leading-relaxed text-bg/40">
+                  {site.kitchenNote}
                 </Reveal>
               </div>
 
-              <Reveal delay={0.1}>
-                <div className="image-frame aspect-[4/3] overflow-hidden rounded-[20px]">
-                  <img src={asset('/images/kitchen-bowl.jpg')} alt="A mixing bowl with eggs and flour on a blue worktop" className="size-full object-cover" loading="lazy" />
-                </div>
-                <p className="mt-4 text-[12px] leading-relaxed text-bg/40">{site.kitchenNote}</p>
+              <Reveal delay={0.1} className="flex flex-col items-center gap-4 text-center lg:items-end lg:text-right">
+                <img
+                  src={asset('/logo.jpg')}
+                  alt={`${site.name} logo: a cupcake and a dessert cup ringed with “Freshly baked with love”`}
+                  className="size-[150px] rounded-full object-cover shadow-[0_24px_60px_-20px_rgba(0,0,0,0.65)] ring-1 ring-bg/20"
+                  loading="lazy"
+                />
+                <p className="font-display-italic text-[15px] text-bg/55">Freshly baked with love.</p>
               </Reveal>
             </div>
           </div>
@@ -249,11 +272,13 @@ function Hero() {
                 <ArrowDown className="size-4" />
               </a>
               <a
-                href={`mailto:${site.email}`}
+                href={site.whatsapp.href}
+                target="_blank"
+                rel="noreferrer"
                 className="link-draw inline-flex items-center gap-1.5 text-[14px] font-medium text-fg/80 hover:text-fg"
               >
-                Ask about one
-                <ArrowUpRight className="size-4" />
+                <MessageCircle className="size-4" />
+                Order on WhatsApp
               </a>
             </motion.div>
           </div>
@@ -266,8 +291,8 @@ function Hero() {
           >
             <div className="image-frame aspect-[4/5] overflow-hidden rounded-t-[999px] rounded-b-[24px]">
               <img
-                src={asset('/images/kitchen-sifting.jpg')}
-                alt="Flour being sifted into a blue-rimmed mixing bowl on a red striped cloth"
+                src={asset('/images/hero-pink-tier.jpg')}
+                alt="A two-tier pink cake with buttercream roses and gold baubles, in front of the Shruti's Bakery sign"
                 className="size-full object-cover"
               />
             </div>
@@ -285,8 +310,8 @@ function Hero() {
           <p>
             {site.areas}, Kolkata
           </p>
-          <p className="sm:text-center">One or two cakes a week</p>
-          <p className="sm:text-right">Made to order, never off a shelf</p>
+          <p className="sm:text-center">Celebration, character &amp; photo cakes</p>
+          <p className="sm:text-right">Order on WhatsApp</p>
         </motion.div>
       </div>
     </section>
@@ -303,11 +328,11 @@ function Stamp({ className }: { className?: string }) {
             <path id="stamp-path" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0" />
           </defs>
           <text className="fill-fg/70 text-[8.2px] uppercase tracking-[0.2em]">
-            <textPath href="#stamp-path">home baked · small batch · </textPath>
+            <textPath href="#stamp-path">home baked · made to order · </textPath>
           </text>
         </svg>
       </div>
-      <span className="font-display-italic absolute inset-0 grid place-items-center text-[17px] text-accent">H&amp;C</span>
+      <span className="font-display-italic absolute inset-0 grid place-items-center text-[17px] text-accent">SB</span>
     </div>
   )
 }

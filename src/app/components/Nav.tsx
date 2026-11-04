@@ -1,7 +1,8 @@
-import { ArrowUpRight } from 'lucide-react'
+import { MessageCircle } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 import { site } from '../../data/site'
+import { asset } from '../../lib/asset'
 import { cx } from '../lib/cx'
 
 const sections = [
@@ -41,9 +42,13 @@ export function Nav() {
       )}
     >
       <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between gap-4 px-5 sm:h-18 sm:px-8">
-        <a href="#top" className="flex items-baseline gap-2" aria-label={`${site.name} home`}>
-          <span className="font-display text-[19px] sm:text-[21px]">{site.name}</span>
-          <span className="round hidden size-1.5 rounded-full bg-accent sm:block" />
+        <a href="#top" className="flex items-center gap-2.5" aria-label={`${site.name} home`}>
+          <img
+            src={asset('/logo.jpg')}
+            alt=""
+            className="size-9 rounded-full object-cover ring-1 ring-line-strong sm:size-10"
+          />
+          <span className="font-display hidden text-[19px] sm:inline sm:text-[21px]">{site.name}</span>
         </a>
         <nav className="flex items-center gap-4 sm:gap-7">
           {sections.map((section) => (
@@ -59,11 +64,13 @@ export function Nav() {
             </a>
           ))}
           <a
-            href={site.instagram.href}
-            className="link-draw hidden items-center gap-1 text-[13.5px] text-muted transition-colors hover:text-fg sm:inline-flex"
+            href={site.whatsapp.href}
+            target="_blank"
+            rel="noreferrer"
+            className="hidden items-center gap-1.5 rounded-full border border-line-strong px-4 py-1.5 text-[13px] text-fg transition-colors hover:border-fg sm:inline-flex"
           >
-            Instagram
-            <ArrowUpRight className="size-3.5" />
+            <MessageCircle className="size-3.5" />
+            WhatsApp
           </a>
         </nav>
       </div>
